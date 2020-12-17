@@ -60,7 +60,8 @@ return [
     ],
     'view_manager' => [
         'template_path_stack' => [
-            OMEKA_PATH . '/themes/transcrire/view',
+            OMEKA_PATH . '/themes/transcrire/view/scripto',
+            // OMEKA_PATH . '/modules/Scripto/view',
         ],
     ],
     'view_helpers' => [
