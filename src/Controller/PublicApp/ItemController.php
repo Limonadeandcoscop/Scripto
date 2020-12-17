@@ -36,6 +36,19 @@ class ItemController extends AbstractActionController
         return $view;
     }
 
+    public function browseAllAction()
+    {
+        $this->setBrowseDefaults('id');
+        $query = $this->params()->fromQuery();
+        $response = $this->api()->search('scripto_items', $query);
+        $this->paginator($response->getTotalResults(), $this->params()->fromQuery('page'));
+        $sItems = $response->getContent();
+
+        $view = new ViewModel;
+        $view->setVariable('sItems', $sItems);
+        return $view;
+    }
+
     public function showAction()
     {
         return $this->redirect()->toRoute(
