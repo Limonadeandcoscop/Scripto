@@ -59,6 +59,9 @@ return [
         ],
     ],
     'view_manager' => [
+        'template_map' => [
+            'header' => OMEKA_PATH . '/themes/transcrire/view/header.phtml',
+        ],
         'template_path_stack' => [
             OMEKA_PATH . '/themes/transcrire/view/scripto',
             // OMEKA_PATH . '/modules/Scripto/view',
