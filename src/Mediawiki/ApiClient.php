@@ -246,6 +246,30 @@ class ApiClient
         return $query;
     }
 
+   /**
+     * Query contributors
+     *
+     * @link https://www.mediawiki.org/wiki/API:Usercontribs
+     * @param string $titles Page titles
+     * @return array
+     */
+    public function queryContributors($titles)
+    {
+        $request = [
+            'action' => 'query',
+            'prop' => 'contributors',
+            'titles' => $titles,
+        ];
+
+        $query = $this->request($request);
+        if (isset($query['error'])) {
+            throw new Exception\QueryException($query['error']['info']);
+        }
+
+        return $query;
+    }
+
+
     /**
      * Query information about named users.
      *
